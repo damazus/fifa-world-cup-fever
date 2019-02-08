@@ -1,0 +1,267 @@
+.img-fluid{
+  max-width: 100%;
+  height: auto;
+}
+
+// card
+.card-main{
+  @include MQ(L){
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #8a000f, #b80020);
+
+
+    &:after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("../img/banner.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.card{
+  position: relative;
+  color: #FFF;
+  background: linear-gradient(to top, #910005, #dd2041);
+
+  &:after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/banner_card.png");
+    background-size: cover;
+  }
+
+  @include MQ(L){
+    position: absolute;
+    z-index: 5;
+    @include center;
+    width: 96%;
+    border-radius: 8px;
+    box-shadow: 5px 12px 100px rgba(#000, .6), -5px -8px 20px rgba(#000, .1);
+    overflow: hidden;
+  }
+
+  @include MQ(XL){
+    width: 1080px;
+    min-height: 500px;
+  }
+}
+
+.card-top{
+  display: flex;
+  align-items: center;
+  padding: 30px 20px;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: "SF-Pro-Text-Semibold";
+
+  @include MQ(M){
+    font-size: 26px;
+    padding: 30px 60px;
+  }
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px 70px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+  @include MQ(M){
+    padding: 0 60px 70px;
+  }
+
+  @include MQ(L){
+    flex-direction: row;
+  }
+}
+
+.card-body__item{
+  width: 100%;
+
+  &.card-body__item--left{
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include MQ(M){
+    &.card-body__item--right{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @include MQ(L){
+    width: 50%;
+
+    &.card-body__item--right{
+      display: block;
+    }
+  }
+}
+
+.card__picture{
+
+  @include MQ(L){
+    width: 340px;
+    margin-left: 38px;
+  }
+}
+
+.card-squares{
+  position: absolute;
+  right: 15px;
+  bottom: 50px;
+
+  @include MQ(L){
+    right: 120px;
+    bottom: 142px;
+  }
+}
+
+.card-square{
+  position: relative;
+  width: $card_square;
+  height: $card_square;
+  border-radius: 3px;
+  background: rgba(#cf2e41, .5);
+  box-shadow: 1px 1px 10px rgba(#7d000e, .1);
+
+  &:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 3px;
+    transform: translate(-17px, 17px);
+    background: rgba(#cf2e41, .3);
+    box-shadow: 1px 1px 10px rgba(#7d000e, .1);
+  }
+
+  &:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: $card_square - 17px;
+    height: $card_square - 17px;
+    background: rgba(#cf3848, .2);
+    border-bottom-left-radius: 3px;
+  }
+}
+
+.card__title{
+  font-family: "BebasNeue-Regular";
+  font-size: 42px;
+  text-transform: uppercase;
+  margin-bottom: 34px;
+
+  @include MQ(M){
+    font-size: 72px;
+  }
+
+  @include MQ(XL){
+    margin-top: 10px;
+  }
+}
+
+.card-timeline{
+  flex: 1;
+}
+
+.card-timeline-item{
+  position: relative;
+  display: flex;
+  font-family: "Roboto-Medium";
+  font-size: 14px;
+  text-transform: uppercase;
+
+  @include MQ(M){
+    font-size: 20px;
+  }
+
+  &:not(:last-child):before{
+    content: '';
+    position: relative;
+    z-index: 1;
+    transform: translateX(($card_timeline_item_dot / 2));
+    display: block;
+    width: 1.2px;
+    background: #FFF;
+  }
+}
+
+.card-timeline-item__dot{
+  position: relative;
+  z-index: 2;
+  width: $card_timeline_item_dot;
+  height: $card_timeline_item_dot;
+  border: 1.2px solid #FFF;
+  border-radius: 50%;
+  background: #BD1121;
+}
+
+.card-timeline-item__content{
+  padding: 0 0 28px 20px;
+
+  .text{
+    margin-bottom: 4px;
+  }
+
+  @include MQ(L){
+    padding: 0 0 28px 40px;
+  }
+}
+
+.card-total{
+  padding-left: 35px;
+  margin-bottom: 50px;
+
+  @include MQ(L){
+    padding-left: 56px;
+    margin-bottom: 0;
+  }
+}
+
+.card-total__count{
+  font-family: "Roboto-Bold";
+  font-size: 36px;
+  margin-bottom: 8px;
+
+  @include MQ(M){
+    font-size: 55px;
+  }
+
+  @include MQ(XL){
+    font-size: 62px;
+  }
+}
+
+.card-total__label{
+  font-family: "Roboto-Regular";
+  text-transform: uppercase;
+
+  @include MQ(M){
+    font-size: 18px;
+  }
+}
