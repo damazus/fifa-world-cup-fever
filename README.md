@@ -33,5 +33,4 @@ $ gulp
 * HTML5
 * CSS3
 * Sass
-* Javascript
-* Gulp
+* Gulp4
